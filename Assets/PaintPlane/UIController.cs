@@ -16,9 +16,9 @@ public class UIController : MonoBehaviour {
         lineRenderTest = Container.lineRenderTest;
         Container.PaintWidth_Slider.onValueChanged.AddListener(OnPaintWidthChange);
         Container.NewPointThreshold_Slider.onValueChanged.AddListener(OnNewPointSliderChange);
-
-        Container.PaintWidthNumber_Text.text = (lineRenderTest.width * 10f).ToString();
-        Container.NewPointthreshold_Text.text = (lineRenderTest.NewPointThresholdDistance * 10f).ToString();
+        //更新UI，同时会触发对应的change事件
+        Container.PaintWidth_Slider.value = lineRenderTest.width * 10f;
+        Container.NewPointThreshold_Slider.value = lineRenderTest.NewPointThresholdDistance * 10f;
     }
 
     private void OnNewPointSliderChange(float value)

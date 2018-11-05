@@ -106,6 +106,7 @@
     <Compile Include="Assets\PaintPlane\LineRenderItem.cs" />
     <Compile Include="Assets\PaintPlane\LineRenderTest.cs" />
     <Compile Include="Assets\PaintPlane\PaintTest.cs" />
+    <Compile Include="Assets\PaintPlane\Test.cs" />
     <Compile Include="Assets\PaintPlane\UIContainer.cs" />
     <Compile Include="Assets\PaintPlane\UIController.cs" />
     <Compile Include="Assets\TestButtonSelect\ButtonTest.cs" />

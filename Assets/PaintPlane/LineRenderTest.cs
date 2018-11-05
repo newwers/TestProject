@@ -49,15 +49,24 @@ public class LineRenderTest : MonoBehaviour {
     /// 最后三个点计算的角度
     /// </summary>
     public float Angle;
+    /// <summary>
+    ///  存放鼠标的位置
+    /// </summary>
+    private List<Vector3> MousePositionList = new List<Vector3>();
+
+    int index = 0;
 
     private void Start()
     {
         Container.ClearAllButton.onClick.AddListener(ClearAllLineRender);
+
+        //启动携程监听鼠标移动事件
+        StartCoroutine(CheckMouseMove());
     }
 
 
     // Update is called once per frame
-    void FixedUpdate () {
+    void Update () {
 
         Container.FPSText.text = (1f/Time.smoothDeltaTime).ToString("0");
 
@@ -65,6 +74,7 @@ public class LineRenderTest : MonoBehaviour {
         {
             //记录鼠标坐标点,记录的是碰撞到plane上的点，而不是鼠标的位置
             startPoint = GetHitInfoPositon();
+            MousePositionList.Add(startPoint);
 
             //每次点击生成一个linerender物体
             GameObject go = CreateLineRenderPrefab();
@@ -79,42 +89,18 @@ public class LineRenderTest : MonoBehaviour {
         {
 
             endPoint = GetHitInfoPositon();
-            distance = Vector3.Distance(startPoint, endPoint);
 
-            //再这边判断具体,
-            if (distance > NewPointThresholdDistance )
-            {
-                
-                    item.Index++;
-                    AddLineRenderPosition();
+            MousePositionList.Add(endPoint);
 
-                    //将第二个点同步到第一个点
-                    startPoint = endPoint;
-                
-                //如果转角太大,重新生成一个lineRender
-                if (CalcDrawLineAngle(120f))
-                {
-                    //生成前,先删除掉自己lineRender最后第二个点的位置,
-                    Vector3 lastPosition = lineRenderer.GetPosition(lineRenderer.positionCount - 2);
-                    lineRenderer.positionCount--;
-                    //生成lineRender
-                    GameObject go = CreateLineRenderPrefab();
-                    LineRenderGameObjects.Add(go);
-                    
 
-                    item.Index++;
-                    AddLineRenderPosition();
-                    //设置新创建的第一个点为上一个lineRender最后第二个点
-                    lineRenderer.SetPosition(0, lastPosition);
-                }
-            }
-            
         }
 
+        //鼠标松开可以不加点
         if (Input.GetMouseButtonUp(0))
         {
-            item.Index++;
-            AddLineRenderPosition();
+            //当鼠标松开时,清除所有
+            //MousePositionList.Clear();
+            index = 0;
         }
     }
     /// <summary>
@@ -143,6 +129,79 @@ public class LineRenderTest : MonoBehaviour {
         //print("Input.mousePosition:" + Input.mousePosition + ",vector3:" + hit.point);
         lineRenderer.SetPosition(item.Index-1, hit.point);
     }
+
+    IEnumerator CheckMouseMove()
+    {
+
+        while (true)
+        {
+            if (MousePositionList.Count > 0)
+            {
+                //print("MousePositionList.Count:" + MousePositionList.Count);
+
+                if (index == 0)
+                {
+                    startPoint = MousePositionList[0];
+                    index++;
+                    MousePositionList.RemoveAt(0);
+                    yield return null;
+                }
+                else
+                {
+                    endPoint = MousePositionList[0];
+                    MousePositionList.RemoveAt(0);
+                    distance = Vector3.Distance(startPoint, endPoint);
+
+                    //再这边判断具体,
+                    if (distance > NewPointThresholdDistance)
+                    {
+
+                        item.Index++;
+                        AddLineRenderPosition();
+
+                        //将第二个点同步到第一个点
+                        startPoint = endPoint;
+
+                        #region 通过两点之间添加差值进行实现
+
+
+
+                        #endregion
+
+
+                        #region 通过判断角度新增游戏物体的方式进行实现
+
+
+
+                        ////如果转角太大,重新生成一个lineRender
+                        //if (CalcDrawLineAngle(120f))
+                        //{
+                        //    //生成前,先删除掉自己lineRender最后第二个点的位置,
+                        //    Vector3 lastPosition = lineRenderer.GetPosition(lineRenderer.positionCount - 2);
+                        //    lineRenderer.positionCount--;
+                        //    //生成lineRender
+                        //    GameObject go = CreateLineRenderPrefab();
+                        //    LineRenderGameObjects.Add(go);
+
+
+                        //    item.Index++;
+                        //    AddLineRenderPosition();
+                        //    //设置新创建的第一个点为上一个lineRender最后第二个点
+                        //    lineRenderer.SetPosition(0, lastPosition);
+                        //}
+
+                        #endregion
+                    }
+                }
+
+            }
+
+
+            yield return null;
+        }
+
+    }
+
     /// <summary>
     /// 发射射线进行碰撞检测,同时返回碰撞到的位置
     /// </summary>
