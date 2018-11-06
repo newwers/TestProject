@@ -57,7 +57,7 @@ public class LineRenderTest : MonoBehaviour {
 
 
     // Update is called once per frame
-    void Update () {
+    void FixedUpdate () {
 
         Container.FPSText.text = (1f/Time.smoothDeltaTime).ToString("0");
 
