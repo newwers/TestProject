@@ -1,0 +1,6 @@
+/exe/
+/Library/
+/Temp/
+! Assets/
+! PrijectSettings/
+! .gitignore
