@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4465785, g: 0.49641252, b: 0.574817, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -604,16 +604,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 985586211}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10d078b9857984bed8c3f3bda6c33656, type: 3}
+  m_Script: {fileID: 11500000, guid: 046de4bfb116742a9b224524be4bc48c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   LineRenderPrefab: {fileID: 1271672054610254, guid: 3828c818b231347c7814145de127c98a,
     type: 2}
-  index: 0
-  NewPointThresholdDistance: 1
+  NewPointThresholdDistance: 0.1
   distance: 0
-  width: 0.1
-  color: {r: 0.8897059, g: 0.20934255, b: 0.20934255, a: 1}
+  width: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
   LineRenderGameObjects: []
   Container: {fileID: 1650572859}
   Angle: 0
@@ -874,7 +873,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 113.400055, y: -14.949962}
+  m_AnchoredPosition: {x: 113.400055, y: -14.949966}
   m_SizeDelta: {x: 46.6, y: 30}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &2117037659
