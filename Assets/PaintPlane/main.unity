@@ -1291,7 +1291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a3ee6d8a2c194db09432f2bff94a59c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Draged: 0
+  Draged: 1
   ParentCanves: {fileID: 2007819660}
   Prefab: {fileID: 1420333237732690, guid: 058a420996b624587b7b526ad5c8d08b, type: 2}
 --- !u!222 &779593946
@@ -1576,7 +1576,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 985586211}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 046de4bfb116742a9b224524be4bc48c, type: 3}
   m_Name: 
@@ -2887,7 +2887,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a3ee6d8a2c194db09432f2bff94a59c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Draged: 0
+  Draged: 1
   ParentCanves: {fileID: 2007819660}
   Prefab: {fileID: 1913150555978648, guid: cf86deea467e9400d86add2454965eb4, type: 2}
 --- !u!222 &1958136950
@@ -3060,7 +3060,7 @@ Canvas:
   m_GameObject: {fileID: 2007819660}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 484243182}
   m_PlaneDistance: 10
   m_PixelPerfect: 0

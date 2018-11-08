@@ -40,7 +40,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a3ee6d8a2c194db09432f2bff94a59c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Draged: 0
+  Draged: 1
   ParentCanves: {fileID: 0}
   Prefab: {fileID: 0}
 --- !u!114 &114478738610959176
