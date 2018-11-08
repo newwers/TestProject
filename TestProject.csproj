@@ -105,11 +105,14 @@
     <Compile Include="Assets\ListCompare\ListCompare.cs" />
     <Compile Include="Assets\PaintPlane\LineRenderItem.cs" />
     <Compile Include="Assets\PaintPlane\LineRenderTest.cs" />
+    <Compile Include="Assets\PaintPlane\NoteController.cs" />
     <Compile Include="Assets\PaintPlane\PaintTest.cs" />
     <Compile Include="Assets\PaintPlane\Test.cs" />
     <Compile Include="Assets\PaintPlane\UIContainer.cs" />
     <Compile Include="Assets\PaintPlane\UIController.cs" />
     <Compile Include="Assets\TestButtonSelect\ButtonTest.cs" />
+    <Compile Include="Assets\脚本顺序测试\A.cs" />
+    <Compile Include="Assets\脚本顺序测试\B.cs" />
     <Compile Include="Assets\进度条时间测试\NewBehaviourScript.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
